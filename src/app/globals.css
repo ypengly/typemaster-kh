@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 160 22% 96%;
+  --foreground: 192 55% 12%;
+  --card: 0 0% 100%;
+  --muted: 160 16% 91%;
+  --muted-foreground: 192 16% 36%;
+  --border: 165 16% 85%;
+  --primary: 182 78% 24%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 36 92% 52%;
+  --accent-foreground: 192 55% 10%;
+  --success: 140 58% 28%;
+  --danger: 347 70% 44%;
+  --ring: 182 78% 30%;
+  --shadow: 192 50% 12%;
+  --typing-scale: 1;
+}
+.dark {
+  --background: 192 45% 7%;
+  --foreground: 150 22% 94%;
+  --card: 192 38% 10%;
+  --muted: 192 30% 15%;
+  --muted-foreground: 175 14% 68%;
+  --border: 192 25% 19%;
+  --primary: 175 62% 46%;
+  --primary-foreground: 192 55% 8%;
+  --accent: 38 92% 58%;
+  --accent-foreground: 192 55% 8%;
+  --success: 140 50% 60%;
+  --danger: 347 85% 68%;
+  --ring: 175 62% 50%;
+  --shadow: 0 0% 0%;
+  color-scheme: dark;
+}
+html[data-scale="sm"] { --typing-scale: 0.88; }
+html[data-scale="lg"] { --typing-scale: 1.2; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  @apply bg-background font-sans text-foreground antialiased;
+  background-image:
+    radial-gradient(60rem 30rem at 0% -10%, hsl(var(--primary) / 0.09), transparent 60%),
+    radial-gradient(40rem 24rem at 100% 110%, hsl(var(--accent) / 0.1), transparent 60%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+:lang(km) { font-family: var(--font-khmer), "Khmer OS", "Leelawadee UI", "Khmer UI", sans-serif; }
+:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
+
+.typing-text { white-space: pre-wrap; overflow-wrap: anywhere; user-select: none; }
+.typing-en { font-size: calc(1.3rem * var(--typing-scale)); line-height: 2; letter-spacing: 0.01em; }
+.typing-km { font-size: calc(1.6rem * var(--typing-scale)); line-height: 2.3; }
+.cursor-mark { box-shadow: inset 0 -3px 0 hsl(var(--primary)); background: hsl(var(--primary) / 0.14); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
